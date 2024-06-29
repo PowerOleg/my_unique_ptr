@@ -19,13 +19,9 @@ int main()
 {
     node* n = new node(1);
     auto ptr1 = Std_unique_ptr<node>(n);
-    node* n2 = ptr1.ptr;
-    node n3 = ptr1.release();
-    node* n4 = ptr1.ptr;
-
     auto ptr2 = Std_unique_ptr<node>(new node(2));
 
-
-
+    node n2 = *ptr1;
+    node* released_n = ptr1.release();
     return 0;
 }

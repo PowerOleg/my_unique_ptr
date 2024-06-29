@@ -5,7 +5,6 @@ template<class T>
 class Std_unique_ptr
 {
 public:
-	T* ptr;
 	Std_unique_ptr(T* a_ptr) : ptr{ a_ptr } {}
 	~Std_unique_ptr()
 	{
@@ -16,18 +15,18 @@ public:
 
 	T operator*()
 	{
-		return ptr;
+		return *ptr;
 	}
 
 
 	Std_unique_ptr& operator=(const Std_unique_ptr&) = delete;
-	T release()
+	T* release()
 	{
 		T* ptr_new = this->ptr;
 		this->ptr = nullptr;
 		return ptr_new;
 	}
-	//private:
-
+	private:
+		T* ptr;
 };
 
