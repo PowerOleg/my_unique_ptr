@@ -18,7 +18,8 @@ public:
 	{
 		return ptr;
 	}
-	//Std_unique_ptr(const Std_unique_ptr&) = delete;
+
+
 	Std_unique_ptr& operator=(const Std_unique_ptr&) = delete;
 	T release()
 	{
