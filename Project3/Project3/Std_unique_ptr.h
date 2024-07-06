@@ -5,7 +5,8 @@ template<class T>
 class Std_unique_ptr
 {
 public:
-	Std_unique_ptr(T* a_ptr) : ptr{ a_ptr } {}		//Std_unique_ptr(T* a_ptr);			//для воспроизведения проблемы1 в Std_unique_ptr.cpp
+	Std_unique_ptr(const Std_unique_ptr&) = delete;
+	Std_unique_ptr(T* a_ptr) : ptr{ a_ptr } {}
 	~Std_unique_ptr()
 	{
 		std::cout << "destructor called\n";
