@@ -33,8 +33,11 @@ public:
 
     std::unique_ptr<tridiagonal_matrix> clone()
     {
-        auto unique_ptr = std::make_unique<tridiagonal_matrix>(*this);
-        return unique_ptr;
+        //auto unique_ptr = std::make_unique<tridiagonal_matrix>(*this);
+        tridiagonal_matrix* matrix_new = new tridiagonal_matrix(this->m_down, this->m_upper, this->m_middle);
+        //auto unique = std::make_unique<tridiagonal_matrix>(matrix_new);//такой вариант не работает
+        std::unique_ptr<tridiagonal_matrix> unique(matrix_new);
+        return unique;
     }
 };
 
